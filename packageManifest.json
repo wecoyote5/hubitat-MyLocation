@@ -14,7 +14,7 @@
 	],
 	"drivers" : [
 		{
-		"id": "89096495-2f7a-4cc4-a674-d7a93b1ea0af",
+		"id": "3c0691d0-2094-4ae7-a603-d3d32cc28e5c",
 		"name": "My Location",
 		"namespace": "MyLocation",
 		"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyProjects/main/MyLocation.groovy",
