@@ -6,7 +6,7 @@
     {
       "name": "My Location",
       "category": "Convenience",
-      "location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyLocation/main/packageManifest.json",
+      "location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyProjects/main/packageManifest.json",
       "description": "User Location driver for use with HD+",
       "tags": [
         "Presence & Location"
