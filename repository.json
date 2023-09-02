@@ -1,0 +1,14 @@
+{
+	"author": "Mark Weniinger",
+	"gitHubUrl": "https://github.com/wecoyote5",
+	"payPalUrl": "",
+	"packages": [
+		{
+			"name": "My Location",
+			"tags": "Presence & Location",
+			"location": "https://raw.githubusercontent.com/package1/packageManifest.json",
+			"description": "User Location driver for use with HD+"
+		},
+	]
+	
+} 
