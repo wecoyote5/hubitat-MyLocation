@@ -1,14 +1,17 @@
 {
-	"author": "Mark Weniinger",
-	"gitHubUrl": "https://github.com/wecoyote5",
-	"payPalUrl": "",
-	"packages": [
-		{
-			"name": "My Location",
-			"tags": "Presence & Location",
-			"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyLocation/main/packageManifest.json",
-			"description": "User Location driver for use with HD+"
-		}
-	]
-	
-} 
+    "author": "Mark Weniinger",
+    "gitHubUrl": "https://github.com/wecoyote5",
+    "payPalUrl": "",
+    "packages": [
+    {
+      "name": "My Location",
+      "category": "Convenience",
+      "location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyLocation/main/packageManifest.json",
+      "description": "User Location driver for use with HD+",
+      "tags": [
+        "Presence & Location"
+      ],
+      "id": "22597029-98db-490b-b8b9-c23b972ee5f2"
+    }
+  ]
+}
