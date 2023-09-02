@@ -1,0 +1,23 @@
+{
+	"packageName": "My Locaion",
+	"minimumHEVersion": "2.1.9",
+	"author": "Mark Weninger",
+	"version": "0.1.0",
+	"dateReleased": "02Sep23",
+	"licenseFile": "",
+	"releaseNotes": "",
+	"apps" : [
+		{
+		}
+	],
+	"drivers" : [
+		{
+			"id": "22597029-98db-490b-b8b9-c23b972ee5f2",
+			"name": "Required Driver",
+			"namespace": "abc.reqdriver",
+			"location": "https://raw.githubusercontent.com/driver1.groovy",
+			"required": true
+		},
+	]
+}
+
