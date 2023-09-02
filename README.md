@@ -4,7 +4,7 @@ This driver is used in conjunction with HD+. If/When this HD+ feature is availab
 
 The driver has 4 attributes which are updated when a new location has been received from HD+.
 
-myLat - Current latitude
-myLon - Current longitude
-myAcc - The accuracy of the location
+myLat - Current latitude\
+myLon - Current longitude\
+myAcc - The accuracy of the location\
 lastUpdated - The last update timestamp
