@@ -17,7 +17,7 @@
 			"namespace": "MyLocation",
 			"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyLocation/main/MyLocation.groovy",
 			"required": true
-		},
+		}
 	]
 }
 
