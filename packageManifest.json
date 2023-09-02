@@ -17,7 +17,7 @@
 		"id": "89096495-2f7a-4cc4-a674-d7a93b1ea0af",
 		"name": "My Location",
 		"namespace": "MyLocation",
-		"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyLocation/main/MyLocation.groovy",
+		"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyProjects/main/MyLocation.groovy",
 		"required": true,
 		"oauth": false,
 		"description": "Driver to support Lat/Lon updates from HD+."
