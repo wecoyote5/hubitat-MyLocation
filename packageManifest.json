@@ -14,8 +14,8 @@
 		{
 			"id": "22597029-98db-490b-b8b9-c23b972ee5f2",
 			"name": "My Location",
-			"namespace": "abc.reqdriver",
-			"location": "https://raw.githubusercontent.com/driver1.groovy",
+			"namespace": "MyLocation",
+			"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyLocation/main/MyLocation.groovy",
 			"required": true
 		},
 	]
