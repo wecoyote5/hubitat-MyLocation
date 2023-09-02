@@ -6,18 +6,21 @@
 	"dateReleased": "02Sep23",
 	"licenseFile": "",
 	"releaseNotes": "",
+        "category": "Convenience",
+        "tags": "Presence & Location",
 	"apps" : [
 		{
 		}
 	],
 	"drivers" : [
 		{
-			"id": "22597029-98db-490b-b8b9-c23b972ee5f2",
-			"name": "My Location",
-			"namespace": "MyLocation",
-			"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyLocation/main/MyLocation.groovy",
-			"required": true
+		"id": "89096495-2f7a-4cc4-a674-d7a93b1ea0af",
+		"name": "My Location",
+		"namespace": "MyLocation",
+		"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyLocation/main/MyLocation.groovy",
+		"required": true,
+		"oauth": false,
+		"description": "Driver to support Lat/Lon updates from HD+."
 		}
 	]
 }
-
