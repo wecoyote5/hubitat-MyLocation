@@ -1,5 +1,5 @@
 {
-	"packageName": "My Locaion",
+	"packageName": "My Location",
 	"minimumHEVersion": "2.1.9",
 	"author": "Mark Weninger",
 	"version": "0.1.0",
@@ -13,7 +13,7 @@
 	"drivers" : [
 		{
 			"id": "22597029-98db-490b-b8b9-c23b972ee5f2",
-			"name": "Required Driver",
+			"name": "My Location",
 			"namespace": "abc.reqdriver",
 			"location": "https://raw.githubusercontent.com/driver1.groovy",
 			"required": true
