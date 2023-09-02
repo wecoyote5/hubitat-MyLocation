@@ -1,6 +1,6 @@
 {
 	"packageName": "My Location",
-	"minimumHEVersion": "2.1.9",
+	"minimumHEVersion": "2.0.0",
 	"author": "Mark Weninger",
 	"version": "0.1.0",
 	"dateReleased": "02Sep23",
