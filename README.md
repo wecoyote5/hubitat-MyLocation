@@ -1,2 +1,3 @@
 # hubitat-MyLocation
-User lat/lon location for use with HD+
+
+This driver is used in conjunction with HD+. HD+ can provide timed lat/lon updates for updating location maps.
