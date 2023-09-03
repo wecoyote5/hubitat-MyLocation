@@ -1,7 +1,7 @@
 /*     
        Revisions
-            02Sep23 - Initial Release
-            02Sep23R1 - Enhanced by @jpage4500
+            0.1.0 - 02Sep23 - Initial Release
+            0.1.1 - 02Sep23R1 - Enhanced by @jpage4500
             	Thanks for the update
 */
  
