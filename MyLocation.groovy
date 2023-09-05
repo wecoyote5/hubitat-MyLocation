@@ -3,18 +3,18 @@
             0.1.0 - 02Sep23 - Initial Release
             0.1.1 - 02Sep23R1 - Enhanced by @jpage4500
             	Thanks for the update
-            0.1.2 - 05Sep23 - Added Activity and geoWKT 
+            0.1.2 - 05Sep23 - Added Status and geoWKT 
 */
  
 import groovy.json.*
 
 metadata {
-    definition(name: "My Location", namespace: "myLocation", author: "MarK Weninger") {
+    definition(name: "My Location", namespace: "myLocation", author: "MarK Weninger", importUrl: "https://raw.githubusercontent.com/wecoyote5/hubitat-MyProjects/main/MyLocation.groovy") {
         capability "Actuator"
         capability "Battery"
         capability "Power Source"
 
-        command('setLocation', [[name: 'Set Location', type: 'JSON_OBJECT', description: 'JSON format: {"lat":80.123, "lng":-80.123, "acc":50, "bat":10, "wifi":true, "power":true}']])
+        command('setLocation', [[name: 'Set Location', type: 'JSON_OBJECT', description: 'JSON format: {"lat":80.123, "lng":-80.123, "acc":50, "bat":10, "wifi":true, "power":true, "status":"driving"}']])
 
     }
 
@@ -30,9 +30,9 @@ metadata {
     attribute "battery", "number"
     attribute "charging", "enum", ["true","false"]
     attribute "wifi", "enum", ["true","false"]
-    attribute "activity", "string"
+
+    attribute "status", "string"
     attribute "geoWKT", "string"
-    
 }
 
 def setLocation (loc) {
@@ -48,38 +48,7 @@ def setLocation (loc) {
         if (locJson.bat) sendEvent(name: "battery", value: locJson.bat, displayed: true)
         if (locJson.containsKey("wifi")) sendEvent(name: "wifi", value: locJson.wifi, displayed: true)
         if (locJson.containsKey("power")) sendEvent(name: "charging", value: locJson.power, displayed: true)
-        if (locJson.containsKey("activ")) {
-            act = "Invalid" /* Init activity to Invalid */
-            switch (locJson.activ) {
-                case 0:
-                    act = "In a Vehicle"
-                    break
-                case 1:
-                    act = "On a Bicycle"
-                    break
-                case 2:
-                    act = "On Foot"
-                    break
-                case 3:
-                    act = "Still"
-                    break
-                case 4:
-                    act = "Unknown"
-                    break
-                case 5:
-                    act = "Tilting"
-                    break
-                case 7:
-                    act = "Walking"
-                    break
-                case 8:
-                    act = "Running"
-                    break
-                default:
-                    act = "Invalid"
-            }
-            sendEvent(name: "activity", value: act, displayed: true)
-        }
+        if (locJson.containsKey("status")) sendEvent(name: "status", value: locJson.status, displayed: true)
 
         sendEvent(name: "lastUpdated", value: new Date())
 
