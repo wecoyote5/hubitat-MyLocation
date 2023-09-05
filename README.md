@@ -11,5 +11,5 @@ lastUpdated - The last update timestamp\
 battery - battery level\
 wifi - On wifi true/false\
 charging - true/false\
-activity - activity reported by the phone (in a vehicle, walking, running, etc)\
+status - activity reported by the phone (in a vehicle, walking, running, etc)\
 geoWKT - The lat and long in WKT format that can be used in google maps
