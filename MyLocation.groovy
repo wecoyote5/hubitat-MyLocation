@@ -3,6 +3,7 @@
             0.1.0 - 02Sep23 - Initial Release
             0.1.1 - 02Sep23R1 - Enhanced by @jpage4500
             	Thanks for the update
+            0.1.2 - 05Sep23 - Added Status and geoWKT 
 */
  
 import groovy.json.*
@@ -29,7 +30,9 @@ metadata {
     attribute "battery", "number"
     attribute "charging", "enum", ["true","false"]
     attribute "wifi", "enum", ["true","false"]
+
     attribute "status", "string"
+    attribute "geoWKT", "string"
 }
 
 def setLocation (loc) {
@@ -40,6 +43,7 @@ def setLocation (loc) {
 
         if (locJson.lat) sendEvent(name: "latitude", value: locJson.lat, displayed: true)
         if (locJson.lng) sendEvent(name: "longitude", value: locJson.lng, displayed: true)
+        sendEvent (name: "geoWKT", value: "POINT (${locJson.lat} ${locJson.lng})", displayed: true)
         if (locJson.acc) sendEvent(name: "accuracy", value: locJson.acc, displayed: true)
         if (locJson.bat) sendEvent(name: "battery", value: locJson.bat, displayed: true)
         if (locJson.containsKey("wifi")) sendEvent(name: "wifi", value: locJson.wifi, displayed: true)
