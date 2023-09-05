@@ -8,12 +8,12 @@
 import groovy.json.*
 
 metadata {
-    definition(name: "My Location", namespace: "myLocation", author: "MarK Weninger") {
+    definition(name: "My Location", namespace: "myLocation", author: "MarK Weninger", importUrl: "https://raw.githubusercontent.com/wecoyote5/hubitat-MyProjects/main/MyLocation.groovy") {
         capability "Actuator"
         capability "Battery"
         capability "Power Source"
 
-        command('setLocation', [[name: 'Set Location', type: 'JSON_OBJECT', description: 'JSON format: {"lat":80.123, "lng":-80.123, "acc":50, "bat":10, "wifi":true, "power":true}']])
+        command('setLocation', [[name: 'Set Location', type: 'JSON_OBJECT', description: 'JSON format: {"lat":80.123, "lng":-80.123, "acc":50, "bat":10, "wifi":true, "power":true, "status":"driving"}']])
 
     }
 
@@ -29,6 +29,7 @@ metadata {
     attribute "battery", "number"
     attribute "charging", "enum", ["true","false"]
     attribute "wifi", "enum", ["true","false"]
+    attribute "status", "string"
 }
 
 def setLocation (loc) {
@@ -43,6 +44,7 @@ def setLocation (loc) {
         if (locJson.bat) sendEvent(name: "battery", value: locJson.bat, displayed: true)
         if (locJson.containsKey("wifi")) sendEvent(name: "wifi", value: locJson.wifi, displayed: true)
         if (locJson.containsKey("power")) sendEvent(name: "charging", value: locJson.power, displayed: true)
+        if (locJson.containsKey("status")) sendEvent(name: "status", value: locJson.status, displayed: true)
 
         sendEvent(name: "lastUpdated", value: new Date())
 
