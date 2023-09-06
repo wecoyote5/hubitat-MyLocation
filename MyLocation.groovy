@@ -14,7 +14,7 @@ metadata {
         capability "Battery"
         capability "Power Source"
 
-        command('setLocation', [[name: 'Set Location', type: 'JSON_OBJECT', description: 'JSON format: {"lat":80.123, "lng":-80.123, "acc":50, "bat":10, "wifi":true, "power":true, "status":"driving"}']])
+        command('setLocation', [[name: 'Set Location', type: 'JSON_OBJECT', description: 'JSON format: {"lat":80.123, "lng":-80.123, "acc":50, "bat":10, "w":1, "p":1, "s":"driving", "c":50}']])
 
     }
 
@@ -31,7 +31,10 @@ metadata {
     attribute "charging", "enum", ["true","false"]
     attribute "wifi", "enum", ["true","false"]
 
-    attribute "status", "string"
+    attribute "status", "string"                        // what the the device is doing ("driving")
+    attribute "confidence", "string"                    // how confident that status is ("75%")
+    attribute "statusSet", "date"                       // last time status changed (NOTE: not always the same as lastUpdated)
+
     attribute "geoWKT", "string"
 }
 
@@ -41,14 +44,18 @@ def setLocation (loc) {
     try {
         def locJson = jsonSlurper.parseText(loc)
 
-        if (locJson.lat) sendEvent(name: "latitude", value: locJson.lat, displayed: true)
-        if (locJson.lng) sendEvent(name: "longitude", value: locJson.lng, displayed: true)
-        sendEvent (name: "geoWKT", value: "POINT (${locJson.lat} ${locJson.lng})", displayed: true)
-        if (locJson.acc) sendEvent(name: "accuracy", value: locJson.acc, displayed: true)
-        if (locJson.bat) sendEvent(name: "battery", value: locJson.bat, displayed: true)
-        if (locJson.containsKey("wifi")) sendEvent(name: "wifi", value: locJson.wifi, displayed: true)
-        if (locJson.containsKey("power")) sendEvent(name: "charging", value: locJson.power, displayed: true)
-        if (locJson.containsKey("status")) sendEvent(name: "status", value: locJson.status, displayed: true)
+        if (locJson.lat) sendEvent(name: "latitude", value: locJson.lat)
+        if (locJson.lng) sendEvent(name: "longitude", value: locJson.lng)
+        sendEvent (name: "geoWKT", value: "POINT (${locJson.lat} ${locJson.lng})")
+
+        if (locJson.acc) sendEvent(name: "accuracy", value: locJson.acc)
+        if (locJson.bat) sendEvent(name: "battery", value: locJson.bat)
+
+        if (locJson.containsKey("w")) sendEvent(name: "wifi", value: locJson.wifi == 1)
+        if (locJson.containsKey("p")) sendEvent(name: "charging", value: locJson.power == 1)
+        if (locJson.containsKey("s")) sendEvent(name: "status", value: locJson.s)
+        if (locJson.containsKey("c")) sendEvent(name: "confidence", value: locJson.c + "%")
+        if (locJson.containsKey("ss")) sendEvent(name: "statusSet", value: new Date(locJson.ss))
 
         sendEvent(name: "lastUpdated", value: new Date())
 
