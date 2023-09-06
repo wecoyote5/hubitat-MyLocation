@@ -1,9 +1,9 @@
 {
 	"packageName": "My Location",
 	"minimumHEVersion": "2.0.0",
-	"author": "Mark Weninger/@jpage4500",
-	"version": "0.1.2",
-	"dateReleased": "05Sep23",
+	"author": "Mark Weninger/Joe Page",
+	"version": "0.1.3",
+	"dateReleased": "06Sep23",
 	"licenseFile": "",
 	"releaseNotes": "",
         "category": "Convenience",
