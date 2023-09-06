@@ -12,6 +12,6 @@ battery - battery level\
 wifi - On wifi true/false\
 charging - true/false\
 status - activity reported by the phone (in a vehicle, walking, running, etc)\
-status confidence - confidence % about the above status\
-
+confidence - confidence in % about the above status\
+statusSet - the last time the status changed\
 geoWKT - The lat and long in WKT format that can be used in google maps
