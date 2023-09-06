@@ -3,13 +3,14 @@
             0.1.0 - 02Sep23 - Initial Release
             0.1.1 - 02Sep23R1 - Enhanced by @jpage4500
             	Thanks for the update
-            0.1.2 - 05Sep23 - Added Status and geoWKT 
+            0.1.2 - 05Sep23 - Added Status and geoWKT
+            0.1.3 - 06Sep23 - Shortened variables and separated accuracy
 */
  
 import groovy.json.*
 
 metadata {
-    definition(name: "My Location", namespace: "myLocation", author: "MarK Weninger", importUrl: "https://raw.githubusercontent.com/wecoyote5/hubitat-MyProjects/main/MyLocation.groovy") {
+    definition(name: "My Location", namespace: "myLocation", author: "MarK Weninger/Joe Page", importUrl: "https://raw.githubusercontent.com/wecoyote5/hubitat-MyProjects/main/MyLocation.groovy") {
         capability "Actuator"
         capability "Battery"
         capability "Power Source"
