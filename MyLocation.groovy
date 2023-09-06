@@ -51,8 +51,8 @@ def setLocation (loc) {
         if (locJson.acc) sendEvent(name: "accuracy", value: locJson.acc)
         if (locJson.bat) sendEvent(name: "battery", value: locJson.bat)
 
-        if (locJson.containsKey("w")) sendEvent(name: "wifi", value: locJson.wifi == 1)
-        if (locJson.containsKey("p")) sendEvent(name: "charging", value: locJson.power == 1)
+        if (locJson.containsKey("w")) sendEvent(name: "wifi", value: locJson.wifi == 1 ? "true" : "false")
+        if (locJson.containsKey("p")) sendEvent(name: "charging", value: locJson.power == 1 ? "true" : "false")
         if (locJson.containsKey("s")) sendEvent(name: "status", value: locJson.s)
         if (locJson.containsKey("c")) sendEvent(name: "confidence", value: locJson.c + "%")
         if (locJson.containsKey("ss")) sendEvent(name: "statusSet", value: new Date(locJson.ss))
