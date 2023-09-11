@@ -6,6 +6,7 @@
             0.1.2 - 05Sep23 - Added Status and geoWKT
             0.1.3 - 06Sep23 - Shortened variables and separated accuracy
             0.1.4 - 07Sep23 - Added name attribute, converted all key checks to use 'containsKey'
+            0.1.5 - 11Sep23 - Changed location name key from 'l' to 'n'
 */
  
 import groovy.json.*
@@ -64,8 +65,8 @@ def setLocation (loc) {
         if (locJson.containsKey("c")) sendEvent(name: "confidence", value: locJson.c + "%")
         if (locJson.containsKey("ss")) sendEvent(name: "statusSet", value: new Date(locJson.ss))
 
-        if (locJson.containsKey("l")) {
-            sendEvent(name: "name", value: locJson.l)
+        if (locJson.containsKey("n")) {
+            sendEvent(name: "name", value: locJson.n)
         } else {
             sendEvent(name: "name", value: null)
         }        
