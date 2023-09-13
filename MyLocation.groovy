@@ -7,6 +7,7 @@
             0.1.3 - 06Sep23 - Shortened variables and separated accuracy
             0.1.4 - 07Sep23 - Added name attribute, converted all key checks to use 'containsKey'
             0.1.5 - 11Sep23 - Changed location name key from 'l' to 'n'
+            0.1.6 - 13Sep23 - Added 'No Zone Preference' Returning 'null' did not work as intended
 */
  
 import groovy.json.*
@@ -23,6 +24,7 @@ metadata {
 
     preferences {
         input name: "enlog", type: "bool", title: "Enable Logging", description: "", required: true
+        input name: "NZString", type: "string", title: "No Zone Name", description: "String Returned when not in any Zone, default is Not Present", required: true
     }
 
     attribute "latitude", "number"
@@ -68,7 +70,11 @@ def setLocation (loc) {
         if (locJson.containsKey("n")) {
             sendEvent(name: "name", value: locJson.n)
         } else {
-            sendEvent(name: "name", value: null)
+            if (NZString != null) {
+                sendEvent(name: "name", value: NZString)
+            }else{
+                sendEvent(name: "name", value: "Not Present")
+            }
         }        
         
         sendEvent(name: "lastUpdated", value: new Date())
