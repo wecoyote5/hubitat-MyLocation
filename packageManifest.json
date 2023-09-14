@@ -16,7 +16,7 @@
 		{
 		"id": "3c0691d0-2094-4ae7-a603-d3d32cc28e5c",
 		"name": "My Location",
-		"namespace": "MyLocation",
+		"namespace": "myLocation",
 		"location": "https://raw.githubusercontent.com/wecoyote5/hubitat-MyProjects/main/MyLocation.groovy",
 		"required": true,
 		"oauth": false,
