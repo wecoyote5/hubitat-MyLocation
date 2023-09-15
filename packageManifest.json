@@ -8,10 +8,6 @@
 	"releaseNotes": "",
         "category": "Convenience",
         "tags": "Presence & Location",
-	"apps" : [
-		{
-		}
-	],
 	"drivers" : [
 		{
 		"id": "3c0691d0-2094-4ae7-a603-d3d32cc28e5c",
