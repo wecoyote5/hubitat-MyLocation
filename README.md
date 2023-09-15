@@ -5,9 +5,10 @@ This driver is used in conjunction with HD+. This HD+ feature provides location 
 v0.1.7 - Added presence capability.\
    There is a new preference variable that is to be the name of the zone to which presence will be set.\
    If the zone name received from HD+ EXACTLY matches the preference name then presence will be set.\  
-   i.e.\HD+ reports "Home" and the preference is "Home" then 'present'\
-        HD+ reports "Work" and the preference is "Home" then 'not present'\
-        HD+ reports no zone then 'not present'
+   i.e.\
+   HD+ reports "Home" and the preference is "Home" then 'present'\
+   HD+ reports "Work" and the preference is "Home" then 'not present'\
+   HD+ reports no zone then 'not present'
 
 The driver has these attributes which are updated when a new location has been received from HD+.
 
