@@ -5,7 +5,7 @@
 	"version": "0.1.9",
 	"dateReleased": "20Oct23",
 	"licenseFile": "",
-	"releaseNotes": "",
+	"releaseNotes": "power attribute added by @jpage4500",
         "category": "Convenience",
         "tags": "Presence & Location",
 	"drivers" : [
