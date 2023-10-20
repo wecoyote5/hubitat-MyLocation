@@ -9,6 +9,7 @@
             0.1.5 - 11Sep23 - Changed location name key from 'l' to 'n'
             0.1.6 - 13Sep23 - Added 'No Zone Preference' Returning 'null' did not work as intended
             0.1.7 - 14Sep23 - Added presence function and the Presence Zone Name preference
+            0.1.8 - 20Oct23 - Corrected WKT format
 
 Sample for testing {"acc":14.084,"bat":63,"c":99,"lat":44.2475469,"lng":-80.1130719,"n":"at Home","p":0,"s":"still","ss":1694726682756,"w":1}
 */
@@ -60,7 +61,7 @@ def setLocation (loc) {
             
             if (locJson.containsKey("lng")) {
                 sendEvent(name: "longitude", value: locJson.lng)
-                sendEvent (name: "geoWKT", value: "POINT (${locJson.lat} ${locJson.lng})") //Only update if both lat and long were received
+                sendEvent (name: "geoWKT", value: "POINT (${locJson.lng} ${locJson.lat})") //Only update if both lat and long were received
             }
         }
         if (locJson.containsKey("acc")) sendEvent(name: "accuracy", value: locJson.acc)
