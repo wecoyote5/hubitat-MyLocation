@@ -2,7 +2,7 @@
        Revisions
             0.1.0 - 02Sep23 - Initial Release
             0.1.1 - 02Sep23R1 - Enhanced by @jpage4500
-            	Thanks for the update
+                Thanks for the update
             0.1.2 - 05Sep23 - Added Status and geoWKT
             0.1.3 - 06Sep23 - Shortened variables and separated accuracy
             0.1.4 - 07Sep23 - Added name attribute, converted all key checks to use 'containsKey'
@@ -10,6 +10,7 @@
             0.1.6 - 13Sep23 - Added 'No Zone Preference' Returning 'null' did not work as intended
             0.1.7 - 14Sep23 - Added presence function and the Presence Zone Name preference
             0.1.8 - 20Oct23 - Corrected WKT format
+            0.1.9 - 20Oct23 - @jpage4500 Added 'power' attribute
 
 Sample for testing {"acc":14.084,"bat":63,"c":99,"lat":44.2475469,"lng":-80.1130719,"n":"at Home","p":0,"s":"still","ss":1694726682756,"w":1}
 */
@@ -40,6 +41,7 @@ metadata {
     attribute "name", "string"                          // if configured by the user, this is name of the presence zone (i.e. 'home' or 'work') the device is currently in.
 
     attribute "battery", "number"
+    attribute "power", "number"                         // -1=unknown, 0=not charging, 1=AC, 2=USB, 4=wireless, 8=dock
     attribute "charging", "enum", ["true","false"]
     attribute "wifi", "enum", ["true","false"]
 
@@ -68,7 +70,13 @@ def setLocation (loc) {
         if (locJson.containsKey("bat")) sendEvent(name: "battery", value: locJson.bat)
 
         if (locJson.containsKey("w")) sendEvent(name: "wifi", value: locJson.w == 1 ? "true" : "false")
-        if (locJson.containsKey("p")) sendEvent(name: "charging", value: locJson.p == 1 ? "true" : "false")
+        if (locJson.containsKey("p")) {
+            def power = locJson.p
+            sendEvent(name: "power", value: power)
+            // -1=unknown, 0=not charging, 1=AC, 2=USB, 4=wireless, 8=dock
+            def isCharging = (power == 1 || power == 2 || power == 4 || power == 8) ? "true" : "false"
+            sendEvent(name: "charging", value: isCharging)
+        } 
         if (locJson.containsKey("s")) sendEvent(name: "status", value: locJson.s)
         if (locJson.containsKey("c")) sendEvent(name: "confidence", value: locJson.c + "%")
         if (locJson.containsKey("ss")) sendEvent(name: "statusSet", value: new Date(locJson.ss))
