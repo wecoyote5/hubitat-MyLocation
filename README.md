@@ -21,7 +21,7 @@ lastUpdated - The last update timestamp\
 battery - battery level\
 wifi - On wifi true/false\
 charging - true/false\
-power - Charging details (not charging, AC, docked, wireless,etc)\
+power - Charging details (-1=unknown, 0=not charging, 1=AC, 2=USB, 4=wireless, 8=dock)\
 status - activity reported by the phone (in a vehicle, walking, running, etc)\
 confidence - confidence in % about the above status\
 statusSet - the last time the status changed\
