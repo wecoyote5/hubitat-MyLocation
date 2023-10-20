@@ -25,6 +25,6 @@ power - Charging details (not charging, AC, docked, wireless,etc)\
 status - activity reported by the phone (in a vehicle, walking, running, etc)\
 confidence - confidence in % about the above status\
 statusSet - the last time the status changed\
-geoWKT - The lat and long in WKT format that can be used in google maps\
+geoWKT - The lat and long in WKT format that can be used on maps\
 name - If configured on the device, this is the name of the presence zone the device currently resides\
 presence - present/not present
