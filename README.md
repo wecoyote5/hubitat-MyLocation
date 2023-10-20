@@ -2,7 +2,8 @@ MyLocation
 
 This driver is used in conjunction with HD+. This HD+ feature provides location and phone updates that can be used for updating dashboard location maps or any other device/app that utilizes geo coordinates.
 
-v0.1.8 - Corrrected WKT format
+v0.1.9 - @jpage4500 added 'power' attribute\
+v0.1.8 - Corrrected WKT format\
 v0.1.7 - Added presence capability.\
    There is a new preference variable that is to be the name of the zone to which presence will be set.\
    If the zone name received from HD+ EXACTLY matches the preference name then presence will be set.\  
@@ -20,6 +21,7 @@ lastUpdated - The last update timestamp\
 battery - battery level\
 wifi - On wifi true/false\
 charging - true/false\
+power - Charging details (not charging, AC, docked, wireless,etc)\
 status - activity reported by the phone (in a vehicle, walking, running, etc)\
 confidence - confidence in % about the above status\
 statusSet - the last time the status changed\
