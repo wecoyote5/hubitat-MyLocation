@@ -1,16 +1,17 @@
 /*     
        Revisions
-            0.1.0 - 02Sep23 - Initial Release
-            0.1.1 - 02Sep23R1 - Enhanced by @jpage4500
+            0.1.0  - 02Sep23 - Initial Release
+            0.1.1  - 02Sep23R1 - Enhanced by @jpage4500
                 Thanks for the update
-            0.1.2 - 05Sep23 - Added Status and geoWKT
-            0.1.3 - 06Sep23 - Shortened variables and separated accuracy
-            0.1.4 - 07Sep23 - Added name attribute, converted all key checks to use 'containsKey'
-            0.1.5 - 11Sep23 - Changed location name key from 'l' to 'n'
-            0.1.6 - 13Sep23 - Added 'No Zone Preference' Returning 'null' did not work as intended
-            0.1.7 - 14Sep23 - Added presence function and the Presence Zone Name preference
-            0.1.8 - 20Oct23 - Corrected WKT format
-            0.1.9 - 20Oct23 - @jpage4500 Added 'power' attribute
+            0.1.2  - 05Sep23 - Added Status and geoWKT
+            0.1.3  - 06Sep23 - Shortened variables and separated accuracy
+            0.1.4  - 07Sep23 - Added name attribute, converted all key checks to use 'containsKey'
+            0.1.5  - 11Sep23 - Changed location name key from 'l' to 'n'
+            0.1.6  - 13Sep23 - Added 'No Zone Preference' Returning 'null' did not work as intended
+            0.1.7  - 14Sep23 - Added presence function and the Presence Zone Name preference
+            0.1.8  - 20Oct23 - Corrected WKT format
+            0.1.9  - 20Oct23 - @jpage4500 Added 'power' attribute
+            0.1.10 - 10Dec23 - Added check for encoded packet, added present/not present commands for testing
 
 Sample for testing {"acc":14.084,"bat":63,"c":99,"lat":44.2475469,"lng":-80.1130719,"n":"at Home","p":0,"s":"still","ss":1694726682756,"w":1}
 */
@@ -25,7 +26,9 @@ metadata {
         capability "PresenceSensor"
 
         command('setLocation', [[name: 'Set Location', type: 'JSON_OBJECT', description: 'JSON format: {"lat":80.123, "lng":-80.123, "acc":50, "bat":10, "w":1, "p":1, "s":"driving", "c":50}']])
-
+        command('setArrived')
+        command('setDeparted')
+        
     }
 
     preferences {
@@ -54,6 +57,12 @@ metadata {
 
 def setLocation (loc) {
     if (enlog) {log.info "Location received ${loc}"}
+
+    if (loc.startsWith("%7B")) {
+        loc = URLDecoder.decode(loc)
+        if (enlog) {log.info loc}
+    }
+
     def jsonSlurper = new JsonSlurper()
     try {
         def locJson = jsonSlurper.parseText(loc)
@@ -98,4 +107,14 @@ def setLocation (loc) {
     } catch (Exception ex) {
         log.warn "Caught Exception ${ex}"
     }
+}
+
+def setArrived () {               
+        sendEvent(name: "presence", value: "present")
+        if (enlog) {log.info "Manual Set Present"}
+}
+
+def setDeparted () {               
+        sendEvent(name: "presence", value: "not present")
+        if (enlog) {log.info "Manual Set Not Present"}
 }
