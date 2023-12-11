@@ -2,6 +2,7 @@ MyLocation
 
 This driver is used in conjunction with HD+. This HD+ feature provides location and phone updates that can be used for updating dashboard location maps or any other device/app that utilizes geo coordinates.
 
+v0.1.10 - Added a check to decode an encoded packet, added present/not present commands for testing\
 v0.1.9 - @jpage4500 added 'power' attribute\
 v0.1.8 - Corrrected WKT format\
 v0.1.7 - Added presence capability.\
