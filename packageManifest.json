@@ -2,10 +2,10 @@
 	"packageName": "My Location",
 	"minimumHEVersion": "2.0.0",
 	"author": "Mark Weninger/Joe Page",
-	"version": "0.1.10",
-	"dateReleased": "10Dec23",
+	"version": "0.1.11",
+	"dateReleased": "04Feb24",
 	"licenseFile": "",
-	"releaseNotes": "Added check to decode an encoded packet and added present/not present commands for testing",
+	"releaseNotes": "Added additional check for encoded '%' ",
         "category": "Convenience",
         "tags": "Presence & Location",
 	"drivers" : [
