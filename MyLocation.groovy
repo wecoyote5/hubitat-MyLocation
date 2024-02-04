@@ -12,6 +12,7 @@
             0.1.8  - 20Oct23 - Corrected WKT format
             0.1.9  - 20Oct23 - @jpage4500 Added 'power' attribute
             0.1.10 - 10Dec23 - Added check for encoded packet, added present/not present commands for testing
+            0.1.11 - 04Feb24 - Added another check for the encoded pakcet also encoding the '%'
 
 Sample for testing {"acc":14.084,"bat":63,"c":99,"lat":44.2475469,"lng":-80.1130719,"n":"at Home","p":0,"s":"still","ss":1694726682756,"w":1}
 */
@@ -58,7 +59,12 @@ metadata {
 def setLocation (loc) {
     if (enlog) {log.info "Location received ${loc}"}
 
-    if (loc.startsWith("%7B")) {
+    if (loc.startsWith("%25")) {  //The '%' is encoded
+        loc = loc.replaceAll("%25", "%")
+        if (enlog) {log.info loc}
+    }
+
+    if (loc.startsWith("%7B")) {  //The entire packet in encoded
         loc = URLDecoder.decode(loc)
         if (enlog) {log.info loc}
     }
