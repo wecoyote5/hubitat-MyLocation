@@ -4,7 +4,7 @@
 	"author": "Mark Weninger/Joe Page",
 	"version": "0.1.11",
 	"dateReleased": "03Feb24",
-	"licenseFile": ""
+	"licenseFile": "",
 	"releaseNotes": "Added additional check for encoded packet",
         "category": "Convenience",
         "tags": "Presence & Location",
