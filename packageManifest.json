@@ -5,7 +5,7 @@
 	"version": "0.1.11",
 	"dateReleased": "03Feb24",
 	"licenseFile": ""
-	"releaseNotes": "Added additional check for encoded '%' ",
+	"releaseNotes": "Added additional check for encoded % ",
         "category": "Convenience",
         "tags": "Presence & Location",
 	"drivers" : [
